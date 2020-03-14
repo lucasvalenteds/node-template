@@ -1,6 +1,13 @@
 {
   "name": "node-template",
   "version": "0.0.1",
-  "main": "index.js",
-  "scripts": {}
+  "main": "dist/index.js",
+  "scripts": {
+      "start": "node dist/index.js",
+      "build": "tsc",
+      "prestart": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3"
+  }
 }
