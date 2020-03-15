@@ -5,8 +5,7 @@
   "scripts": {
     "start": "nodemon index.ts",
     "test": "jest",
-    "build": "tsc",
-    "lint": "eslint . --ext .ts"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/jest": "25.1.4",
