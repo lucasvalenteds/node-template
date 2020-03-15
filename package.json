@@ -5,10 +5,15 @@
   "scripts": {
     "start": "nodemon index.ts",
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint . --ext .ts"
   },
   "devDependencies": {
     "@types/jest": "25.1.4",
+    "@typescript-eslint/eslint-plugin": "2.23.0",
+    "@typescript-eslint/parser": "2.23.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
     "jest": "25.1.0",
     "nodemon": "2.0.2",
     "ts-jest": "25.2.1",
@@ -21,9 +26,38 @@
     "collectCoverage": true
   },
   "nodemonConfig": {
-    "watch": ["src"],
+    "watch": [
+      "src"
+    ],
     "ext": "ts",
-    "ignore": ["src/**/*.spec.ts"],
+    "ignore": [
+      "src/**/*.spec.ts"
+    ],
     "exec": "ts-node ./index.ts"
+  },
+  "eslintConfig": {
+    "root": true,
+    "ignorePatterns": [
+      "dist/",
+      "coverage/",
+      "node_modules/",
+      "package.json"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+      "project": [
+        "./tsconfig.json"
+      ]
+    }
   }
 }
