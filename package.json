@@ -14,7 +14,9 @@
     "@typescript-eslint/parser": "2.23.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.0",
+    "husky": "4.2.3",
     "jest": "25.1.0",
+    "lint-staged": "10.0.8",
     "nodemon": "2.0.2",
     "prettier": "1.19.1",
     "ts-jest": "25.2.1",
@@ -62,12 +64,23 @@
     }
   },
   "prettier": {
-      "parser": "typescript",
-      "tabWidth": 4,
-      "semi": true,
-      "singleQuote": false,
-      "trailingComma": "es5",
-      "bracketSpacing": true,
-      "arrowParens": "always"
+    "parser": "typescript",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
